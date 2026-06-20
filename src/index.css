@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+@layer base {
+  :root, .dark {
+    --background: #09090b; /* zinc-950 */
+    --foreground: #f4f4f5; /* zinc-100 */
+
+    --card: #18181b; /* zinc-900 */
+    --card-foreground: #f4f4f5;
+
+    --popover: #18181b;
+    --popover-foreground: #f4f4f5;
+
+    --primary: #fafafa;
+    --primary-foreground: #18181b;
+
+    /* White/5 for secondary bg */
+    --secondary: rgba(255, 255, 255, 0.05);
+    --secondary-foreground: #f4f4f5;
+
+    --muted: #27272a; /* zinc-800 */
+    --muted-foreground: #a1a1aa; /* zinc-400 */
+
+    --accent: rgba(255, 255, 255, 0.05);
+    --accent-foreground: #f4f4f5;
+
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+
+    --border: rgba(39, 39, 42, 0.5); /* zinc-800/50 */
+    --input: #27272a;
+    --ring: #d4d4d8;
+
+    --radius: 1.5rem; /* rounded-3xl */
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom Gradients and Animations for Roles */
+@keyframes text-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.role-owner {
+  background: linear-gradient(-45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-size: 300%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-gradient 5s ease infinite;
+}
+
+.role-owner-bg {
+  background: linear-gradient(-45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+  background-size: 300%;
+  animation: text-gradient 5s ease infinite;
+}
+
+.role-admin {
+  background: linear-gradient(-45deg, #ff416c, #ff4b2b);
+  background-size: 300%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-gradient 3s ease infinite;
+}
+
+.role-admin-bg {
+  background: linear-gradient(-45deg, #ff416c, #ff4b2b);
+  background-size: 300%;
+  animation: text-gradient 3s ease infinite;
+}
+
+.role-moderator {
+  background: linear-gradient(-45deg, #4facfe, #00f2fe);
+  background-size: 300%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: text-gradient 3s ease infinite;
+}
+
+.role-moderator-bg {
+  background: linear-gradient(-45deg, #4facfe, #00f2fe);
+  background-size: 300%;
+  animation: text-gradient 3s ease infinite;
+}
+
+.glass {
+  background: rgba(24, 24, 27, 0.4); /* zinc-900/40 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(39, 39, 42, 0.6); /* border-zinc-800/60 */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.dark .glass {
+  background: rgba(24, 24, 27, 0.4);
+  border: 1px solid rgba(39, 39, 42, 0.6);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
